@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package test;
+
+option go_package = "/test";
+
+service MyService {
+  rpc CreateRecord(CreateRecordRequest) returns (CreateRecordResponse) {}
+  rpc UpdateRecord(UpdateRecordRequest) returns (UpdateRecordResponse) {}
+}
+
+message CreateRecordRequest {
+  string name = 1;
+  int32 age = 2;
+}
+
+message CreateRecordResponse {
+  string id = 1;
+}
+
+message UpdateRecordRequest {
+  string id = 1;
+  string name = 2;
+  int32 age = 3;
+}
+
+message UpdateRecordResponse {
+  bool success = 1;
+}
